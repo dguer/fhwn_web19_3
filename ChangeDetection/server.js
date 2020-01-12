@@ -6,17 +6,17 @@ const { JSDOM } = jsdom;
 const app = express();
 
 var url;
-var normal;
-var element;
-var query = null;
+var normalSite;
+var changesSite;
+var element = null;
 
 app.use(bodyparser.json());
 
 app.post('/loadSite', async (req, res) => {
-    normal = "";
-    element = "";
-    query = req.body.query;
-    console.log(query);
+    normalSite = "";
+    changesSite= "";
+    element = req.body.element;
+    console.log(element);
 
     var tempSite = await checkForSite(req.body.url);
     console.log(tempSite);
@@ -24,12 +24,12 @@ app.post('/loadSite', async (req, res) => {
     url = req.body.url;
     console.log(req.body.url);
 
-    if (normal === "") {
+    if (normalSite === "") {
         res.status(404).json({ reason: 'Not Found' });
     }
     else {
-        var doc = (new JSDOM(normal)).window.document;
-        var temp = doc.querySelectorAll(query);
+        var doc = (new JSDOM(normalSite)).window.document;
+        var temp = doc.querySelectorAll(element);
         var stack = [];
 
         temp.forEach(element => {
@@ -58,13 +58,13 @@ async function checkForSite(site) {
     try {
         await page.goto(site, { waitUntil: "networkidle2" });
         await page.waitFor(1 * 1000);
-        oldWebsite = await page.content();
+        normalSite = await page.content();
         console.log("Page found!");
 
     } catch (error) {
         console.log("No Site!");
 
-        oldWebsite = "";
+        normalSite = "";
         return false;
     }
 
@@ -78,13 +78,13 @@ async function loadNewPage() {
     try {
         await page.goto(url, { waitUntil: "networkidle2" });
         await page.waitFor(1 * 1000);
-        element = await page.content();
+        changesSite = await page.content();
         console.log("Found Site!");
         var doc = (new JSDOM(normal)).window.document;
-        var oldRes = doc.querySelectorAll(query);
+        var oldRes = doc.querySelectorAll(element);
 
         var doc02 = (new JSDOM(element)).window.document;
-        var res = doc02.querySelectorAll(query);
+        var res = doc02.querySelectorAll(element);
 
         var changedObj = [];
 
@@ -119,12 +119,12 @@ async function loadNewPage() {
             }
         }
 
-        normal = element;
+        normalsite = changesSite;
         await browser.close();
         return changedObj;
 
     } catch (error) {
-        element = "";
+        changesSite = "";
         return [];
     }
 }

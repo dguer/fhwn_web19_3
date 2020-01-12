@@ -11,8 +11,8 @@ export class ChangeService {
   private interv: any;
   public isRunning: boolean;
   public hasChanged: boolean;
-  public normal: string;
-  public changes: string;
+  public normalSite: string;
+  public changesSite: string;
 
   constructor(private http: HttpClient) { 
 
@@ -20,8 +20,8 @@ export class ChangeService {
     this.elementSelect = null;
     this.isRunning = false;
     this.hasChanged = false;
-    this.normal = '';
-    this.changes = '';
+    this.normalSite = '';
+    this.changesSite = '';
     this.StartWatching = this.StartWatching.bind(this);
     this.StopWatching = this.StopWatching.bind(this);
     this.GetPage = this.GetPage.bind(this);
@@ -41,7 +41,7 @@ export class ChangeService {
     }).subscribe(
       x => {
         this.isRunning = true;
-        this.normal = x.website;
+        this.normalSite = x.website;
         this.interv = setInterval(this.GetPage, 10000);
       },
       error => {
@@ -61,7 +61,7 @@ export class ChangeService {
     }).subscribe(
       x => {
         if (x.res.length !== 0) {
-          this.changes = x.res.toString();
+          this.changesSite = x.res.toString();
           this.hasChanged = true;
         } else {
           this.hasChanged = false;

@@ -37,19 +37,19 @@ export class ViewComponent implements OnInit {
     }
   }
   
-  public get normal(): string {
-    return this.detectionService.normal;
+  public get normalSite(): string {
+    return this.detectionService.normalSite;
 }
 
-public get changes(): string {
-  return this.detectionService.changes;
+public get changesSite(): string {
+  return this.detectionService.changesSite;
 }
 
 public get buttonText(): string {
   if (this.detectionService.isRunning) {
-    return 'Stop Service';
+    return 'Stop';
   } else {
-    return 'Start Service';
+    return 'Start';
   }
 }
 

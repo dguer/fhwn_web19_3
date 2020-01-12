@@ -2,17 +2,28 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-sm-3 text-center">
-                <h1>Konfiguration</h1>
-                <p>For analyse the side please write the homepage link and what do you want analyse.</p>
-                <form class="container center_div" style="text-align: center; margin-top: 20px;">
-                    <div class="form-group" >
-                      <label for="">Website:</label>
-                      <input type="text" [(ngModel)]="website" name="webInput" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                      <label for="" style="margin-top: 10px;">Element: </label>
-                      <input type="text" [(ngModel)]="element" name="elementInput" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                    </div>
-                  </form>
+                <h1>Configuration</h1>
+                <img src="https://www.pinclipart.com/picdir/big/0-7530_68-computer-clipart-clipart-fans-new-office-party.png"  class="img-fluid" style="width: 30%; ">
+            </div>
+        
+        </div>
+
+        <div class="container" style="margin-top: 30px;">
+            <div class="row">
+                <div class="col-md-6 offset-sm-3 text-center">
+
+                    <p>For analyse the site please write the homepage link and what do you want analyse.</p>
+                    <form class="container center_div" style="text-align: center; margin-top: 20px;">
+                        <div class="form-group">
+                            <label for="">Website:</label>
+                            <input type="text" [(ngModel)]="website" name="webInput" id="" class="form-control"
+                                aria-describedby="helpId" placeholder="https://www.google.com">
+                            <label for="" style="margin-top: 10px;">Element: </label>
+                            <input type="text" [(ngModel)]="element" name="elementInput" id="" class="form-control"
+                                aria-describedby="helpId" placeholder="e.g. p">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>

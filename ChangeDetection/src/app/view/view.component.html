@@ -1,22 +1,31 @@
 <div class="padding" style="padding: 50px;">
-    <div class="container">
-        <div class="row">
-          <div class="container" style="margin-top: 20px;">
-            <div>
-              <button (click)="onStartOrStop()">{{buttonText}}</button>
-              <p>on {{website}}</p>
-              <p [style.color]="changedBool ? 'red' : 'pink'">{{changed}}</p>
-            </div>
-            <div class="border border-success" style="margin-bottom: 20px;">
-              <p style="color: pink; text-align:center">Old Website</p>
-              <p style="margin: 1em; text-align:center">{{normal}}</p>
-            </div>
-            <div class="border border-danger">
-              <p style="color: red; text-align:center">Changes</p>
-              <p style="margin: 1em; text-align:center">{{changes}}</p>
-            </div>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-sm-3 text-center">
+      <h3>View the site!</h3>
 
+        <iframe src="https://giphy.com/embed/xGdvlOVSWaDvi" width="200px" height="200px"frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    
+
+      
     </div>
+    <div class="col-md-6 offset-sm-3 text-center">
+        <div>
+          <p>Press the button for start or stop the service!</p>
+          <button (click)="onStartOrStop()">{{buttonText}}</button>
+          <p>on {{website}}</p>
+          <p [style.color]="changedBool ? 'red' : 'black'">{{changed}}</p>
+        </div>
+        <div class="border border-dark">
+          <p style="color: black; text-align:center">Website</p>
+          <p style="margin: 1em; text-align:center">{{normalSite}}</p>
+        </div>
+        <div class="border border-danger">
+          <p style="color: red; text-align:center">Changes</p>
+          <p style="margin: 1em; text-align:center">{{changesSite}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
