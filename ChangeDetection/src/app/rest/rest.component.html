@@ -4,20 +4,14 @@
             <div class="col-md-6 offset-sm-3 text-center">
                 <h1>Konfiguration</h1>
                 <p>For analyse the side please write the homepage link and what do you want analyse.</p>
-                <form>
-                    <div class="form-row">
-
-                        <input type="url" class="form-control" id="inputLink" placeholder="Homepage">
+                <form class="container center_div" style="text-align: center; margin-top: 20px;">
+                    <div class="form-group" >
+                      <label for="">Website:</label>
+                      <input type="text" [(ngModel)]="website" name="webInput" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                      <label for="" style="margin-top: 10px;">Element: </label>
+                      <input type="text" [(ngModel)]="element" name="elementInput" id="" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>
-                    <div class="form-row">
-    
-                        <input type="text" class="form-control" id="inputText" placeholder="h3.title">
-                    </div>
-
-
-                    <button type="submit" class="btn btn-primary" onclick="pupFunction()">Submit</button>
-            
-            </form>
+                  </form>
         </div>
     </div>
 </div>
