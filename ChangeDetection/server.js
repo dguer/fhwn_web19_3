@@ -47,7 +47,7 @@ app.listen(3000, function () {
 
 app.get('/checkForChange', async (req, res) => {
     var temp = await loadNewPage();
-    temp.push("Test..");
+    temp.push("Changes found!");
     res.status(200).json({ res: temp });
 });
 
